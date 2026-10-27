@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>史萊姆的戀愛手札 — リムル×スアン</title>
+    <meta
+      name="description"
+      content="利姆路 × 璇｜互動網站辦公室開場，敲門、迎接與導覽流程 demo。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient-glow ambient-glow-1"></div>
+      <div class="ambient-glow ambient-glow-2"></div>
+      <div class="starfield" aria-hidden="true"></div>
+
+      <main class="site-stage">
+        <section id="door-scene" class="scene active" aria-label="敲門開場">
+          <div class="door-room">
+            <div class="door-frame">
+              <div id="door-panel" class="door-panel">
+                <div class="door-panel-inner"></div>
+                <div class="door-knob"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="intro-overlay">
+            <p class="intro-line intro-line-1">歡迎來到魔國聯邦。</p>
+            <p class="intro-line intro-line-2">在這裡，有一間收藏著無數回憶的辦公室。</p>
+            <p class="intro-line intro-line-3">不妨敲敲門，看看今天會遇見誰吧？</p>
+          </div>
+
+          <div class="door-actions">
+            <button id="knock-button" class="primary-button large-button" type="button">
+              輕輕敲門 ♡
+            </button>
+            <button id="skip-intro" class="ghost-button" type="button">跳過開場</button>
+          </div>
+        </section>
+
+        <section id="office-scene" class="scene" aria-label="辦公室導覽廳">
+          <div id="office-bg" class="office-background" aria-hidden="true"></div>
+
+          <header class="office-header">
+            <div class="brand-mark">リムル × スアン</div>
+            <div class="header-actions">
+              <button id="music-toggle" class="icon-button" type="button" aria-label="音樂開關">
+                ♫
+              </button>
+              <button id="return-door" class="ghost-button tiny" type="button">返回門口</button>
+            </div>
+          </header>
+
+          <div class="office-layout" aria-label="辦公室互動場景">
+            <button class="hotspot hotspot-shelf" data-page="about" type="button" aria-label="書櫃：關於我們">
+              <span>書櫃</span>
+            </button>
+            <button class="hotspot hotspot-table" data-page="daily" type="button" aria-label="辦公桌：戀愛日常">
+              <span>辦公桌</span>
+            </button>
+            <button class="hotspot hotspot-window" data-page="anniversary" type="button" aria-label="窗戶：戀愛紀念日">
+              <span>窗戶</span>
+            </button>
+            <button class="hotspot hotspot-vase" data-page="fortune" type="button" aria-label="花瓶：戀愛御神籤">
+              <span>花瓶</span>
+            </button>
+            <button class="hotspot hotspot-door" type="button" aria-label="門：返回開場">
+              <span>門</span>
+            </button>
+
+            <div class="zero4-character" id="zero4-character" data-guide-open="true" aria-label="零肆立繪">
+              <div class="character-shadow"></div>
+              <div class="character-sprite">
+                <div class="face face-default"></div>
+                <div class="face face-happy hidden"></div>
+              </div>
+            </div>
+          </div>
+
+          <aside id="guide-panel" class="guide-panel hidden" aria-live="polite">
+            <div class="guide-header">
+              <span>零肆導覽</span>
+              <button id="guide-close" class="icon-button small" type="button" aria-label="關閉導覽">✕</button>
+            </div>
+            <div class="guide-list" role="menu" aria-label="導覽選單">
+              <button class="guide-item" data-page="about" type="button">1. 關於我們</button>
+              <button class="guide-item" data-page="daily" type="button">2. 戀愛日常</button>
+              <button class="guide-item" data-page="anniversary" type="button">3. 戀愛紀念日</button>
+              <button class="guide-item" data-page="qa" type="button">4. 戀愛問答</button>
+              <button class="guide-item" data-page="fortune" type="button">5. 戀愛御神籤</button>
+              <button class="guide-item" data-page="guestbook" type="button">6. 訪客留言簿</button>
+            </div>
+          </aside>
+
+          <div class="dialogue-box" id="dialogue-box" aria-live="polite">
+            <div class="dialogue-meta">
+              <span class="speaker-label">零肆</span>
+            </div>
+            <p id="dialogue-text" class="dialogue-text"></p>
+            <div class="dialogue-actions">
+              <button id="prev-line" type="button" class="ghost-button tiny">上一句</button>
+              <button id="replay-line" type="button" class="ghost-button tiny">重播</button>
+              <button id="guide-trigger" type="button" class="primary-button tiny">導覽選單</button>
+            </div>
+          </div>
+
+          <section id="story-panel" class="story-panel hidden" aria-live="polite">
+            <div class="story-panel-inner">
+              <div class="story-header">
+                <span id="story-title">導覽內容</span>
+                <button id="story-close" class="icon-button small" type="button" aria-label="關閉內容">✕</button>
+              </div>
+              <div id="story-content" class="story-content"></div>
+              <div class="story-footer">
+                <button id="back-office" class="primary-button" type="button">返回辦公室導覽</button>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
